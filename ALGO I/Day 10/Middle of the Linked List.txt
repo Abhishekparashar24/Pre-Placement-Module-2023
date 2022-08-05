@@ -1,0 +1,27 @@
+class Solution {
+    
+    public ListNode middleNode(ListNode head) {
+    
+    	//  When there is only one node in the linked list , Return directly to itself 
+        if (head == null || head.next == null) {
+    
+			return head;
+		}
+		//  Define speed pointer 
+        ListNode quick = head;
+        ListNode slow = head;
+        //  Move speed pointer , And make parity judgment 
+        while(quick.next != null){
+    
+            slow = slow.next;
+            if(quick.next.next != null){
+      //  p. 
+                quick = quick.next.next;
+            }else{
+      //  accidentally 
+                quick = quick.next;
+            }  
+        }
+        return slow;
+    }
+}
