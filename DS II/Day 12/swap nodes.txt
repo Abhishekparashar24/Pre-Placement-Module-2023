@@ -1,0 +1,28 @@
+
+class Solution {
+  public ListNode swapPairs(ListNode head) {
+    // get the length of head
+    ListNode q = head;
+    int length = 0;
+    while (q != null) {
+      length++;
+      q = q.next;
+    }
+    ListNode dumHead = new ListNode(0);
+    q = dumHead;
+ for (int i = 0; i < length / 2; i++) {
+      ListNode mid = head;
+      head = head.next;
+      q.next = head;
+      head = head.next;
+      q = q.next;
+      q.next = mid;
+      q = q.next;
+    }
+     if (head != null) {
+      q.next = head;
+    }
+    return dumHead.next;
+  }
+}
+
